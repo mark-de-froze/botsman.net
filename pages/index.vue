@@ -61,7 +61,10 @@ export default {
   },
   head () {
     return {
-      title: this.$store.state.settings.app.title
+      title: this.$store.state.settings.app.title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.$store.state.settings.app.description }
+      ]
     }
   },
   components: {
