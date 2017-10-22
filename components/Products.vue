@@ -2,7 +2,7 @@
   <section id="products" class="uk-width-1-1 uk-height-viewport">
     <div class="uk-container uk-padding-remove uk-width-5-6">
       <hr class="uk-margin-medium-top">
-      <h2 class="uk-text-center" uk-parallax="opacity: 0,1; y: -100,0; scale: 2,1; viewport: 0.5;">Сухарики пшеничные "Боцман"</h2>
+      <h2 class="uk-text-center" uk-parallax="opacity: 0,1; y: -100,0; scale: 2,1; viewport: 0.5;">{{category.title}}</h2>
 
       <div class="uk-child-width-1-4@m" uk-grid uk-height-match="target: .uk-card-title">
         <div v-for="(product, index) in orderBy(products, 'updated_at')" class="uk-card">
@@ -17,7 +17,6 @@
           </div>
         </div>
       </div>
-
       <hr class="uk-margin-medium-bottom">
     </div>
 
@@ -31,19 +30,17 @@
           </div>
           <div class="uk-padding-large">
             <h1>{{product.title}}</h1>
-            <p>{{product.content}}</p>
+            <p v-html="product.content"></p>
             <div uk-grid class="uk-child-width-1-2@m">
               <dl class="uk-description-list uk-description-list-divider">
                 <dt>Состав продукта</dt>
                 <dd>{{product.properties.composition}}</dd>
-
                 <dt>Нарезка</dt>
                 <dd>{{product.properties.form}}</dd>
               </dl>
               <dl class="uk-description-list uk-description-list-divider">
                 <dt>Вес упаковки</dt>
                 <dd>{{product.properties.weight}}</dd>
-
                 <dt>Срок реализации</dt>
                 <dd>{{product.properties.expiry_date}}</dd>
               </dl>
@@ -68,6 +65,7 @@
       }
     },
     computed: {
+      category () { return this.$store.state.category },
       products () { return this.$store.state.category.products.data }
     }
   }
