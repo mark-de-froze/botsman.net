@@ -1,18 +1,30 @@
 <template>
-  <header id="intro" v-bind:style="{ 'background-color': bgColor}" class="uk-inline uk-height-large uk-width-1-1" uk-height-viewport="offset-top: true">
-    <div class="uk-position-top-center intro-logo">
+  <header id="intro" :style="{ 'background-color': bgColor}" class="uk-inline uk-height-large uk-width-1-1" uk-height-viewport="offset-top: true">
+    <div class="uk-position-top-center intro-logo uk-visible@xl">
+      <img src="~assets/cover-intro-logo.png" :alt="settings.app.title" uk-parallax="y: 0,0; scale: 1.5,1;">
+    </div>
+
+    <div class="uk-position-top-center intro-logo uk-hidden@xl">
       <img src="~assets/cover-intro-logo.png" :alt="settings.app.title">
     </div>
 
-    <div class="uk-position-top-center intro-animation uk-visible@m">
+    <div class="uk-position-top-center intro-animation uk-visible@m uk-hidden@xl">
       <img src="~assets/cover-intro-animation.png" class="fa-spin" :alt="settings.app.title">
     </div>
 
-    <div class="uk-position-left intro-botsman-white">
+    <div class="uk-position-left intro-botsman-white uk-visible@xl">
+      <img src="~assets/botsman-white.png" :alt="settings.app.title" uk-parallax="y: 0,0; scale: 1.5,1;">
+    </div>
+
+    <div class="uk-position-left intro-botsman-white uk-hidden@xl">
       <img src="~assets/botsman-white.png" :alt="settings.app.title">
     </div>
 
-    <div class="uk-position-right intro-botsman-blue">
+    <div class="uk-position-right intro-botsman-blue uk-visible@xl">
+      <img src="~assets/botsman-blue.png" :alt="settings.app.title" uk-parallax="y: 0,0; scale: 1.5,1;">
+    </div>
+
+    <div class="uk-position-right intro-botsman-blue uk-hidden@xl">
       <img src="~assets/botsman-blue.png" :alt="settings.app.title">
     </div>
 
